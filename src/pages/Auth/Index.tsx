@@ -69,8 +69,9 @@ function Todo() {
       <article>
         <h2>{authType === "signin" ? "Sign in" : "Login"}</h2>
         <form onSubmit={authType === "signin" ? Signin : Login}>
-          <input name="email" value={LoginItem.email} onChange={handleInput} />
+          <input type="email" name="email" value={LoginItem.email} onChange={handleInput} />
           <input
+            type="password"
             name="password"
             value={LoginItem.password}
             onChange={handleInput}

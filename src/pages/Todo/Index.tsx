@@ -28,9 +28,13 @@ function TodoIndex() {
   const newTodo = async (e: any) => {
     e.preventDefault();
     if (isLoading) return false;
+    // title && content를 trim으로 공백 제거.
+    const title = todo.title.trim();
+    const content = todo.content.trim();
+    if (!title || !content) return false;
     setIsLoading(true);
     try {
-      const { data } = await todoService.createTodo(todo.title, todo.content);
+      const { data } = await todoService.createTodo(title, content);
       setTodoList([...todoList!, data]);
       setTodo({
         title: "",
